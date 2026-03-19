@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Our Game Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Page3.css">
+</head>
+
+<body class="bg-[#0f172a] text-white">
+
+    <nav class="navbar anim-fade-down">
+        <div class="nav-container">
+            <a href="index.html" class="logo-section">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="pixel-brand brand-text">
+                    <span class="brand-title">OUR GAME</span>
+                    <span class="brand-subtitle text-cyan-400">DEVELOPER</span>
+                </div>
+            </a>
+
+            <button class="mobile-btn" id="burger-menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-menu" id="menu-list">
+                <li class="nav-item-anim"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item-anim"><a href="Page2.html" class="nav-link">About</a></li>
+                <li class="nav-item-anim"><a href="Page3.html" class="nav-link active">Our Project</a></li>
+                <li class="nav-item-anim mobile-only">
+                    <a href="#contact" class="btn-contact pixel-brand mobile-contact-link">Contact Us</a>
+                </li>
+            </ul>
+
+            <div class="nav-action nav-action-anim hide-on-mobile">
+                <button class="btn-contact pixel-brand">Contact Us</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container-wide text-center">
+            <h1 class="pixel-brand text-6xl text-cyan-400 mb-4 anim-reveal-1">OUR PROJECTS</h1>
+            <p class="text-slate-400 text-lg max-w-xl mx-auto anim-reveal-2 uppercase tracking-widest">
+                Explore our collection of games and development tools.
+            </p>
+        </div>
+    </section>
+
+    <div class="container-wide mb-12 flex justify-center gap-4 anim-reveal-2">
+        <button class="filter-btn active pixel-brand" data-filter="all">ALL</button>
+        <button class="filter-btn pixel-brand" data-filter="game">GAMES</button>
+        <button class="filter-btn pixel-brand" data-filter="plugin">PLUGINS</button>
+    </div>
+
+    <section class="projects-grid-section anim-reveal-3">
+        <div class="container-wide">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center" id="all-projects-grid">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container-wide">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-section mb-6">
+                        <img src="logo.png" alt="Logo" class="logo-img">
+                        <div class="brand-text">
+                            <span class="brand-title pixel-brand">OUR GAME</span>
+                            <span class="brand-subtitle pixel-brand text-cyan-400">DEVELOPER</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
+                        Pushing the boundaries of gaming with high-performance tools and immersive experiences.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="pixel-brand text-xl mb-6 text-white uppercase">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Page2.html">About Us</a></li>
+                        <li><a href="Page3.html">Our Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="pixel-brand text-xl mb-6 text-white uppercase">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">FB</a>
+                        <a href="#" class="social-icon">IG</a>
+                        <a href="#" class="social-icon">YT</a>
+                    </div>
+                    <p class="mt-6 text-slate-400 text-sm">contact@ourgame.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="text-slate-500 text-xs text-center">&copy; 2026 OUR GAME DEVELOPER. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="pixel-brand text-3xl text-orange-500">CONTACT US</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <form action="https://formspree.io/f/xzdjozdp" method="POST" id="contact-form">
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Name</label>
+                    <input type="text" name="name" placeholder="ENTER YOUR NAME..." required>
+                </div>
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Email</label>
+                    <input type="email" name="email" placeholder="YOUR@EMAIL.COM" required>
+                </div>
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Message</label>
+                    <textarea name="message" placeholder="HOW CAN WE HELP?" rows="4" required></textarea>
+                </div>
+                <button type="submit" id="submit-btn" class="btn-contact pixel-brand w-full mt-4">
+                    <span id="btn-text">SEND SIGNAL</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="projects-data.js"></script>
+
+    <script>
+        // --- 1. Load Projects Data ---
+        const gridContainer = document.getElementById('all-projects-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        function renderProjects(filterType = "all") {
+            gridContainer.innerHTML = "";
+            const filtered = (filterType === "all")
+                ? myProjects
+                : myProjects.filter(p => p.type.toLowerCase() === filterType);
+
+            filtered.forEach(p => {
+                // เช็คเงื่อนไข: ถ้า isPreRelease เป็น true ให้ใช้สีฟ้า (Cyan) ถ้า false ให้ปล่อยว่าง (ใช้สีเดิม)
+                // ใส่เครื่องหมาย ! (important) ของ Tailwind เพื่อให้สีฟ้าทับสีเดิมของ .p-btn แน่นอน 100%
+                const btnColorClass = p.isPreRelease ? "!bg-[#22d3ee] !text-[#0f172a]" : "";
+
+                gridContainer.innerHTML += `
+                    <div class="p-card">
+                        <div class="p-image">
+                            <img src="${p.image}" alt="${p.title}">
+                            <span class="p-badge ${btnColorClass}">${p.status}</span>
+                        </div>
+                        <div class="p-content">
+                            <h3 class="pixel-brand text-2xl text-orange-500 mb-2">${p.title}</h3>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-3">${p.description}</p>
+                            <div class="p-footer">
+                                <span class="p-status text-cyan-400">${p.type}</span>
+                                <a href="${p.linkAction}" class="p-btn pixel-brand">${p.actionText}</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+        renderProjects("all");
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                renderProjects(e.target.getAttribute('data-filter'));
+            });
+        });
+
+        // --- 2. Mobile Hamburger Menu System (แบบ Page 1) ---
+        const burgerBtn = document.getElementById('burger-menu');
+        const menuList = document.getElementById('menu-list');
+
+        burgerBtn.addEventListener('click', () => {
+            menuList.classList.toggle('active');
+            burgerBtn.classList.toggle('open');
+        });
+
+        // --- 3. Modal System ---
+        const modal = document.getElementById('contact-modal');
+        const closeBtn = document.getElementById('close-modal');
+
+        document.querySelectorAll('.btn-contact').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+                // ปิด Navbar มือถือเมื่อเปิด Modal
+                if (menuList.classList.contains('active')) {
+                    menuList.classList.remove('active');
+                    burgerBtn.classList.remove('open');
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+        // --- 4. Formspree Submission ---
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = "0.7";
+            btnText.innerText = "SENDING...";
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    btnText.innerText = "SIGNAL SENT!";
+                    submitBtn.style.background = "#22d3ee";
+                    setTimeout(() => {
+                        contactForm.reset();
+                        modal.classList.remove('active');
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.style.opacity = "1";
+                            submitBtn.style.background = "#fb923c";
+                            btnText.innerText = "SEND SIGNAL";
+                        }, 500);
+                    }, 1500);
+                } else { throw new Error(); }
+            } catch (error) {
+                btnText.innerText = "SIGNAL LOST!";
+                submitBtn.style.background = "#ef4444";
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                    submitBtn.style.background = "#fb923c";
+                    btnText.innerText = "RETRY SIGNAL";
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+
+</html>

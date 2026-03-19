@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Game Developer | About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Page2.css">
+</head>
+
+<body class="bg-[#0f172a] text-white">
+
+    <nav class="navbar anim-fade-down">
+        <div class="nav-container">
+            <a href="index.html" class="logo-section">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="pixel-brand brand-text">
+                    <span class="brand-title">OUR GAME</span>
+                    <span class="brand-subtitle text-cyan-400">DEVELOPER</span>
+                </div>
+            </a>
+
+            <button class="mobile-btn" id="burger-menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-menu" id="menu-list">
+                <li class="nav-item-anim"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item-anim"><a href="Page2.html" class="nav-link active">About</a></li>
+                <li class="nav-item-anim"><a href="Page3.html" class="nav-link">Our Project</a></li>
+                <li class="nav-item-anim mobile-only">
+                    <a href="#contact" class="btn-contact pixel-brand mobile-contact-link">Contact Us</a>
+                </li>
+            </ul>
+
+            <div class="nav-action nav-action-anim hide-on-mobile">
+                <a href="#contact" class="btn-contact pixel-brand">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container-wide text-center">
+            <h1 class="pixel-brand text-6xl text-orange-500 mb-6 anim-reveal-1">BEHIND THE PIXELS</h1>
+            <p class="text-slate-300 text-xl max-w-2xl mx-auto anim-reveal-2">
+                A solo developer's journey driven by passion, logic, and the love for creating something from nothing.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-content anim-reveal-3">
+        <div class="container-wide grid md:grid-cols-2 gap-12 items-center">
+            <div class="story-image-placeholder">
+                <img src="about-studio.jpg" alt="Our Studio" class="rounded-xl border border-white/10 shadow-2xl">
+            </div>
+            <div class="story-text">
+                <h2 class="pixel-brand text-4xl text-cyan-400 mb-6">OUR STORY</h2>
+                <p class="text-slate-400 leading-relaxed mb-4">
+                    Everything started from a simple curiosity about how all of the games are built. What began as a
+                    personal hobby has evolved into a deep-seated passion for high-performance development.
+                </p>
+                <p class="text-slate-400 leading-relaxed">
+                    Beyond just writing code, we focus on the art of <strong>Game Development</strong>—transforming
+                    complex mechanics into engaging experiences.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="what-we-do">
+        <div class="container-wide">
+            <h2 class="pixel-brand text-4xl text-center text-white mb-12">WHAT WE DO</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card">
+                    <div class="service-icon">🎮</div>
+                    <h3 class="pixel-brand text-2xl mb-4 text-cyan-400">Game Design</h3>
+                    <p class="text-slate-400 text-sm">Crafting immersive mechanics and balanced gameplay experiences.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3 class="pixel-brand text-2xl mb-4 text-cyan-400">Unity Tools</h3>
+                    <p class="text-slate-400 text-sm">Developing custom plugins to streamline the development workflow.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3 class="pixel-brand text-2xl mb-4 text-cyan-400">UI/UX Design</h3>
+                    <p class="text-slate-400 text-sm">Building clean, responsive, and user-friendly interfaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="connect-section py-24 bg-white/5">
+        <div class="container-wide">
+            <h2 class="pixel-brand text-4xl text-center mb-12">CONNECT WITH <span class="text-orange-500">US</span></h2>
+
+            <div class="connect-grid">
+                <a href="#" target="_blank" class="connect-card unity anim-reveal-2">
+                    <div class="icon-box">
+                        <img src="icons/unity.png" alt="Unity" style="width: 28px; height: 28px; object-fit: contain;">
+                    </div>
+                    <div class="connect-info">
+                        <span class="pixel-brand text-xl">Unity Asset Store</span>
+                        <p>Get our dev tools</p>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="connect-card google-play anim-reveal-2">
+                    <div class="icon-box">
+                        <img src="icons/google-play.png" alt="Google Play"
+                            style="width: 28px; height: 28px; object-fit: contain;">
+                    </div>
+                    <div class="connect-info">
+                        <span class="pixel-brand text-xl">Google Play</span>
+                        <p>Download our games</p>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="connect-card itch anim-reveal-2">
+                    <div class="icon-box">
+                        <img src="icons/itch-io.png" alt="Itch.io"
+                            style="width: 28px; height: 28px; object-fit: contain;">
+                    </div>
+                    <div class="connect-info">
+                        <span class="pixel-brand text-xl">Itch.io</span>
+                        <p>Indie prototypes</p>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="connect-card facebook anim-reveal-3">
+                    <div class="icon-box">
+                        <img src="icons/facebook.png" alt="Facebook"
+                            style="width: 28px; height: 28px; object-fit: contain;">
+                    </div>
+                    <div class="connect-info">
+                        <span class="pixel-brand text-xl">Facebook</span>
+                        <p>Community news</p>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="connect-card instagram anim-reveal-3">
+                    <div class="icon-box">
+                        <img src="icons/instagram.png" alt="Instagram"
+                            style="width: 28px; height: 28px; object-fit: contain;">
+                    </div>
+                    <div class="connect-info">
+                        <span class="pixel-brand text-xl">Instagram</span>
+                        <p>Behind the scenes</p>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="connect-card youtube anim-reveal-3">
+                    <div class="icon-box">
+                        <img src="icons/youtube.png" alt="YouTube"
+                            style="width: 28px; height: 28px; object-fit: contain;">
+                    </div>
+                    <div class="connect-info">
+                        <span class="pixel-brand text-xl">YouTube</span>
+                        <p>Devlogs & Trailers</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container-wide">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-section mb-6">
+                        <img src="logo.png" alt="Logo" class="logo-img">
+                        <div class="pixel-brand brand-text">
+                            <span class="brand-title">OUR GAME</span>
+                            <span class="brand-subtitle text-cyan-400">DEVELOPER</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
+                        Pushing the boundaries of gaming with high-performance tools.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="pixel-brand text-xl mb-6 text-white uppercase">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Page2.html">About Us</a></li>
+                        <li><a href="Page3.html">Our Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col text-center">
+                    <h4 class="pixel-brand text-xl mb-6 text-white uppercase text-left">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">FB</a>
+                        <a href="#" class="social-icon">IG</a>
+                        <a href="#" class="social-icon">YT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center pt-8 border-t border-white/5">
+                <p class="text-slate-500 text-xs">&copy; 2026 OUR GAME DEVELOPER. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="pixel-brand text-3xl text-orange-500">CONTACT US</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <form action="https://formspree.io/f/xzdjozdp" method="POST" id="contact-form">
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Name</label>
+                    <input type="text" name="name" placeholder="ENTER YOUR NAME..." required>
+                </div>
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Email</label>
+                    <input type="email" name="email" placeholder="YOUR@EMAIL.COM" required>
+                </div>
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Message</label>
+                    <textarea name="message" placeholder="HOW CAN WE HELP?" rows="4" required></textarea>
+                </div>
+                <button type="submit" id="submit-btn" class="btn-contact pixel-brand w-full mt-4">
+                    <span id="btn-text">SEND SIGNAL</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. ระบบเปิด/ปิด เมนูมือถือ (แบบ Page 1) ---
+        const burgerBtn = document.getElementById('burger-menu');
+        const menuList = document.getElementById('menu-list');
+
+        burgerBtn.addEventListener('click', () => {
+            menuList.classList.toggle('active');
+            burgerBtn.classList.toggle('open');
+        });
+
+        // ปิดเมนูเมื่อกดเลือกลิงก์
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuList.classList.remove('active');
+                burgerBtn.classList.remove('open');
+            });
+        });
+
+        // --- 2. ระบบ Modal (แบบ Page 1) ---
+        const modal = document.getElementById('contact-modal');
+        const closeBtn = document.getElementById('close-modal');
+
+        document.querySelectorAll('.btn-contact').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+                // ถ้าเปิดเมนูมือถืออยู่ ให้ปิดเมนูก่อน
+                if (menuList.classList.contains('active')) {
+                    menuList.classList.remove('active');
+                    burgerBtn.classList.remove('open');
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+        // --- 3. Formspree Handling ---
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            btnText.innerText = "SENDING...";
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    btnText.innerText = "SIGNAL SENT!";
+                    submitBtn.style.background = "#22d3ee";
+                    setTimeout(() => {
+                        contactForm.reset();
+                        modal.classList.remove('active');
+                        btnText.innerText = "SEND SIGNAL";
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = "#fb923c";
+                    }, 2000);
+                }
+            } catch (err) {
+                btnText.innerText = "SIGNAL LOST!";
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    btnText.innerText = "RETRY SIGNAL";
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+
+</html>

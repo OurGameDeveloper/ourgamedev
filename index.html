@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Game Developer | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Page1.css">
+</head>
+
+<body class="bg-[#0f172a] text-white">
+
+    <nav class="navbar anim-fade-down">
+        <div class="nav-container">
+            <a href="index.html" class="logo-section">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="pixel-brand brand-text">
+                    <span class="brand-title">OUR GAME</span>
+                    <span class="brand-subtitle text-cyan-400">DEVELOPER</span>
+                </div>
+            </a>
+
+            <button class="mobile-btn" id="burger-menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-menu" id="menu-list">
+                <li class="nav-item-anim"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item-anim"><a href="Page2.html" class="nav-link">About</a></li>
+                <li class="nav-item-anim"><a href="Page3.html" class="nav-link">Our Project</a></li>
+                <li class="nav-item-anim mobile-only">
+                    <a href="#contact" class="btn-contact pixel-brand mobile-contact-link">Contact Us</a>
+                </li>
+            </ul>
+
+            <div class="nav-action nav-action-anim hide-on-mobile">
+                <a href="#contact" class="btn-contact pixel-brand">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="slides-container">
+            <div class="slide active" style="background-image: url('bg1.jpg');"></div>
+            <div class="slide" style="background-image: url('bg2.jpg');"></div>
+            <div class="slide" style="background-image: url('bg3.jpg');"></div>
+            <div class="overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="pixel-brand main-title anim-reveal-1">
+                CREATING <br>
+                <span class="text-orange-500">GAMES & PLUG-INS</span>
+            </h1>
+            <p class="hero-subtitle text-slate-300 anim-reveal-2">
+                Many games and Unity tools for game developers.
+            </p>
+        </div>
+    </header>
+
+    <section class="projects-section anim-reveal-3">
+        <div class="container-wide">
+            <a href="Page3.html" class="project-header-group">
+                <h2 class="pixel-brand section-heading uppercase tracking-widest">
+                    Latest Projects
+                    <span class="header-arrow">→</span>
+                </h2>
+                <p class="view-all-text pixel-brand">Click to view all works</p>
+            </a>
+            <div class="slider-wrapper">
+                <div class="project-slider" id="home-slider">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container-wide">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-section mb-6">
+                        <img src="logo.png" alt="Logo" class="logo-img">
+                        <div class="pixel-brand brand-text">
+                            <span class="brand-title">OUR GAME</span>
+                            <span class="brand-subtitle text-cyan-400">DEVELOPER</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
+                        Pushing the boundaries of gaming with high-performance tools and immersive experiences.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="pixel-brand text-xl mb-6 text-white uppercase">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Page2.html">About Us</a></li>
+                        <li><a href="Page3.html">Our Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="pixel-brand text-xl mb-6 text-white uppercase">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">FB</a>
+                        <a href="#" class="social-icon">IG</a>
+                        <a href="#" class="social-icon">YT</a>
+                    </div>
+                    <p class="mt-6 text-slate-400 text-sm">contact@ourgame.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="text-slate-500 text-xs text-center">&copy; 2026 OUR GAME DEVELOPER. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="projects-data.js"></script>
+
+    <script>
+        // --- 1. ระบบ Slide พื้นหลังเดิม (ห้ามแก้) ---
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 5000);
+
+        // --- 2. ระบบดึงข้อมูล Latest Projects (ห้ามแก้) ---
+        const sliderContainer = document.getElementById('home-slider');
+        const sorted = [...myProjects].sort((a, b) => new Date(b.uploadDate) - new Date(a.uploadDate));
+        const latestThree = sorted.slice(0, 3);
+        let sliderHtml = "";
+        latestThree.forEach(p => {
+            sliderHtml += `
+                <div class="project-card">
+                    <div class="card-media">
+                        <img src="${p.image}" alt="${p.title}" class="card-img">
+                        <span class="card-badge bg-cyan-500 pixel-brand">${p.status}</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title pixel-brand text-cyan-400">${p.title}</h3>
+                            <span class="card-genre text-slate-400 text-xs uppercase tracking-widest">${p.type}</span>
+                            <p class="card-description text-slate-300">${p.description}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="${p.linkDetails}" class="btn-card-secondary pixel-brand">Details</a>
+                        <a href="${p.linkAction}" class="btn-card-primary pixel-brand">${p.actionText}</a>
+                    </div>
+                </div>`;
+        });
+        for (let i = latestThree.length; i < 4; i++) {
+            sliderHtml += `<div class="project-card-empty">Upcoming Project</div>`;
+        }
+        sliderContainer.innerHTML = sliderHtml;
+
+        // --- 3. [เพิ่ม] ระบบเปิด/ปิด เมนูมือถือ ---
+        const burgerBtn = document.getElementById('burger-menu');
+        const menuList = document.getElementById('menu-list');
+
+        burgerBtn.addEventListener('click', () => {
+            menuList.classList.toggle('active');
+            burgerBtn.classList.toggle('open');
+        });
+    </script>
+
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="pixel-brand text-3xl text-orange-500">CONTACT US</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+
+            <form action="https://formspree.io/f/xzdjozdp" method="POST" id="contact-form">
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Name</label>
+                    <input type="text" name="name" placeholder="ENTER YOUR NAME..." required>
+                </div>
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Email</label>
+                    <input type="email" name="email" placeholder="YOUR@EMAIL.COM" required>
+                </div>
+                <div class="form-group">
+                    <label class="pixel-brand text-cyan-400">Message</label>
+                    <textarea name="message" placeholder="HOW CAN WE HELP?" rows="4" required></textarea>
+                </div>
+                <button type="submit" id="submit-btn" class="btn-contact pixel-brand w-full mt-4">
+                    <span id="btn-text">SEND SIGNAL</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- 4. ระบบ Modal เดิม (ห้ามแก้ แต่เพิ่มให้รองรับปุ่มในมือถือ) ---
+        const modal = document.getElementById('contact-modal');
+        const closeBtn = document.getElementById('close-modal');
+
+        // สั่งให้ปุ่มที่มีคลาส .btn-contact ทุกตัวเปิด Modal ได้
+        document.querySelectorAll('a.btn-contact').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+                // ถ้าเป็นมือถือ ให้ปิดเมนูก่อนเปิด Modal
+                if (menuList.classList.contains('active')) {
+                    menuList.classList.remove('active');
+                    burgerBtn.classList.remove('open');
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+        // --- ระบบส่ง Form เดิม (ห้ามแก้) ---
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = "0.7";
+            btnText.innerText = "SENDING...";
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    btnText.innerText = "SIGNAL SENT!";
+                    submitBtn.style.background = "#22d3ee";
+                    setTimeout(() => {
+                        contactForm.reset();
+                        modal.classList.remove('active');
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.style.opacity = "1";
+                            submitBtn.style.background = "#fb923c";
+                            btnText.innerText = "SEND SIGNAL";
+                        }, 500);
+                    }, 1500);
+                } else { throw new Error(); }
+            } catch (error) {
+                btnText.innerText = "SIGNAL LOST!";
+                submitBtn.style.background = "#ef4444";
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                    submitBtn.style.background = "#fb923c";
+                    btnText.innerText = "RETRY SIGNAL";
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+
+</html>

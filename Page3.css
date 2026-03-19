@@ -1,0 +1,571 @@
+/* --- GLOBAL & SCROLLBAR --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fb923c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- ป้องกันหน้าจอดิ้น --- */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: white;
+}
+
+.pixel-brand {
+    font-family: 'Jersey 10', sans-serif;
+}
+
+.container-wide {
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    margin-bottom: 0.3rem;
+    filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.2));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-section:hover .logo-img {
+    transform: scale(1.15) rotate(-8deg);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0.8rem;
+    line-height: 0.9;
+}
+
+.brand-title {
+    font-size: 1.6rem;
+    color: white;
+    display: block;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.brand-subtitle {
+    font-size: 0.8rem;
+    color: #22d3ee;
+    display: block;
+    letter-spacing: 0.25em;
+    margin-top: 2px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 3.5rem;
+    list-style: none;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.6rem;
+    font-family: 'Jersey 10', sans-serif;
+    text-decoration: none;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: #fb923c;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.btn-contact {
+    background: #fb923c;
+    padding: 0.6rem 1.6rem;
+    border-radius: 0.4rem;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+    box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-contact:hover {
+    transform: translate(-2px, -2px) scale(1.05);
+    box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-contact:active {
+    box-shadow: 0px 0px 0px transparent;
+    transform: translate(2px, 2px);
+}
+
+/* --- PROJECT HERO --- */
+.project-hero {
+    padding: 8rem 0 5rem 0;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #22d3ee;
+    color: #0f172a;
+    border-color: #22d3ee;
+    transform: translateY(-2px);
+}
+
+/* --- PROJECT CARDS --- */
+.projects-grid-section {
+    padding-bottom: 8rem;
+}
+
+.p-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+}
+
+.p-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(34, 211, 238, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.p-image {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+.p-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.p-card:hover .p-image img {
+    transform: scale(1.1);
+}
+
+.p-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: #fb923c;
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.p-content {
+    padding: 1.5rem;
+}
+
+.p-footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1rem;
+}
+
+.p-status {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.p-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.p-btn:hover {
+    background: #22d3ee;
+    color: #0f172a;
+}
+
+/* --- FOOTER --- */
+.footer-section {
+    background-color: #0b1120;
+    padding: 5rem 0 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fb923c;
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    background: #fb923c;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- MODAL (แบบเดียวกับหน้า 1 เป๊ะๆ) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-out;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    margin: auto;
+    position: relative;
+    background: #1e293b;
+    border: 2px solid rgba(34, 211, 238, 0.2);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ef4444;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 4px;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes navSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-item-anim {
+    opacity: 0;
+    animation: navSlideUp 0.6s ease-out forwards;
+}
+
+.nav-item-anim:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.nav-item-anim:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.nav-item-anim:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.anim-reveal-1 {
+    animation: revealUp 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.anim-reveal-2 {
+    animation: revealUp 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+.anim-reveal-3 {
+    animation: revealUp 1s ease-out 0.8s forwards;
+    opacity: 0;
+}
+
+/* ============================================================
+   COMBINED MOBILE RESPONSIVE (ก๊อปปี้จาก Page 1)
+   ============================================================ */
+
+/* 1. ปุ่ม Hamburger (ขีด 3 ขีด) */
+.mobile-btn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2001;
+    padding: 5px;
+}
+
+.mobile-btn span {
+    width: 28px;
+    height: 3px;
+    background: #22d3ee;
+    transition: 0.3s;
+    display: block;
+}
+
+.mobile-btn.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-btn.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-btn {
+        display: flex;
+    }
+
+    .hide-on-mobile,
+    .nav-action-anim {
+        display: none !important;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        gap: 2rem !important;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .mobile-only {
+        display: block;
+        width: 80%;
+    }
+
+    .mobile-contact-link {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        background: #fb923c;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+    }
+
+    /* ป้องกัน Page 3 ดิ้น */
+    .container-wide {
+        padding: 0 1.5rem;
+        overflow: hidden;
+    }
+}

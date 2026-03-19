@@ -1,0 +1,734 @@
+/* --- GLOBAL --- */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 10px;
+    border: 2px solid #0f172a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fb923c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    background-color: #0f172a;
+    color: white;
+}
+
+.pixel-brand {
+    font-family: 'Jersey 10', sans-serif;
+}
+
+.container-wide {
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    margin-bottom: 0.3rem;
+    filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.2));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-section:hover .logo-img {
+    transform: scale(1.15) rotate(-8deg);
+}
+
+.brand-text {
+    line-height: 1;
+    margin-left: 0.8rem;
+}
+
+.brand-title {
+    font-size: 1.6rem;
+    color: white;
+    display: block;
+}
+
+.brand-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 3.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item-anim {
+    opacity: 0;
+    animation: navSlideUp 0.6s ease-out forwards;
+}
+
+.nav-item-anim:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.nav-item-anim:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.nav-item-anim:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.6rem;
+    font-family: 'Jersey 10', sans-serif;
+    text-decoration: none;
+    transition: 0.3s;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #fb923c;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: white;
+}
+
+.nav-action-anim {
+    opacity: 0;
+    animation: navSlideUp 0.6s ease-out 0.5s forwards;
+}
+
+.btn-contact {
+    font-size: 1.3rem;
+    background-color: #fb923c;
+    color: white;
+    padding: 0.6rem 1.6rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 0.15);
+    transition: 0.2s;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px 0px rgba(255, 255, 255, 0.2);
+}
+
+/* --- ABOUT STYLES --- */
+.about-hero {
+    padding: 8rem 0 4rem 0;
+    background: radial-gradient(circle at center, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+}
+
+.about-content {
+    padding: 4rem 0 8rem 0;
+}
+
+.story-image-placeholder img {
+    width: 100%;
+    border-radius: 1rem;
+    filter: grayscale(30%);
+    transition: 0.5s;
+}
+
+.story-image-placeholder img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.what-we-do {
+    padding: 6rem 0;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    transition: 0.4s;
+}
+
+.service-card:hover {
+    border-color: #fb923c;
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- CONNECT GRID STYLES --- */
+.connect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.connect-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.connect-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.connect-info p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.unity:hover {
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+.google-play:hover {
+    box-shadow: 0 10px 30px rgba(52, 168, 83, 0.2);
+    border-color: #34a853;
+}
+
+.itch:hover {
+    box-shadow: 0 10px 30px rgba(250, 92, 92, 0.2);
+    border-color: #fa5c5c;
+}
+
+.facebook:hover {
+    box-shadow: 0 10px 30px rgba(24, 119, 242, 0.2);
+    border-color: #1877f2;
+}
+
+.instagram:hover {
+    box-shadow: 0 10px 30px rgba(225, 48, 108, 0.2);
+    border-color: #e1306c;
+}
+
+.youtube:hover {
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
+}
+
+.unity:hover .icon-box {
+    color: #ffffff;
+}
+
+.google-play:hover .icon-box {
+    color: #34a853;
+}
+
+.itch:hover .icon-box {
+    color: #fa5c5c;
+}
+
+.facebook:hover .icon-box {
+    color: #1877f2;
+}
+
+.instagram:hover .icon-box {
+    color: #e1306c;
+}
+
+.youtube:hover .icon-box {
+    color: #ff0000;
+}
+
+/* --- FOOTER --- */
+.footer-section {
+    background-color: #0b1120;
+    padding: 5rem 0 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fb923c;
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    background: #fb923c;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- SYSTEM: MODAL STYLES --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background: #1e293b;
+    border: 2px solid rgba(34, 211, 238, 0.2);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ef4444;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 4px;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes navSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes revealUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.anim-fade-down {
+    animation: fadeDown 0.8s ease-out forwards;
+}
+
+.anim-reveal-1 {
+    animation: revealUp 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.anim-reveal-2 {
+    animation: revealUp 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+.anim-reveal-3 {
+    animation: revealUp 1s ease-out 0.8s forwards;
+    opacity: 0;
+}
+
+/* ============================================================
+   COMBINED MOBILE RESPONSIVE (ก๊อปปี้จาก Page 1)
+   ============================================================ */
+
+/* 1. ปุ่ม Hamburger (ขีด 3 ขีด) */
+.mobile-btn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2001;
+    /* ให้อยู่เหนือเมนู */
+    padding: 5px;
+}
+
+.mobile-btn span {
+    width: 28px;
+    height: 3px;
+    background: #22d3ee;
+    transition: 0.3s;
+    display: block;
+}
+
+/* แอนิเมชันปุ่มตอนเปลี่ยนเป็นตัว X */
+.mobile-btn.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-btn.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ซ่อนปุ่ม Contact พิเศษเมื่ออยู่บนจอคอม */
+.mobile-only {
+    display: none;
+}
+
+/* ============================================================
+   MEDIA QUERY (สำหรับหน้าจอมือถือ 768px ลงไป)
+   ============================================================ */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* โชว์ปุ่ม Hamburger */
+    .mobile-btn {
+        display: flex;
+    }
+
+    /* ซ่อนปุ่ม Contact ตัวนอก */
+    .hide-on-mobile,
+    .nav-action-anim {
+        display: none !important;
+    }
+
+    /* จัดการเมนูให้สไลด์จากขวาเหมือน Page 1 */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        gap: 2rem !important;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* โชว์ปุ่ม Contact ภายในเมนู */
+    .mobile-only {
+        display: block;
+        width: 80%;
+    }
+
+    .mobile-contact-link {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        background: #fb923c;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+    }
+
+    /* ป้องกัน Page 2 ดิ้น */
+    .container-wide {
+        padding: 0 1.5rem;
+        overflow: hidden;
+    }
+}
+
+/* --- เอฟเฟกต์เฉพาะตัวโลโก้ (รูปภาพ) ภายใน Icon Box --- */
+.icon-box img {
+    /* ตอนปกติให้เป็นสีเทาและสว่างขึ้นนิดนึงให้ดูกลืนกับเว็บ */
+    filter: grayscale(100%) brightness(1.5) opacity(0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* พอชี้เมาส์ที่การ์ด ให้โลโก้กลับมาเป็นสีออริจินัล และเด้งขยายขึ้นนิดนึง */
+.connect-card:hover .icon-box img {
+    filter: grayscale(0%) brightness(1) opacity(1);
+    transform: scale(1.2);
+}
+
+/* --- สีประจำแบรนด์เมื่อ Hover (ขอบกล่องและเงาเรืองแสง) --- */
+.unity:hover {
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+.google-play:hover {
+    box-shadow: 0 10px 30px rgba(52, 168, 83, 0.2);
+    border-color: #34a853;
+}
+
+.itch:hover {
+    box-shadow: 0 10px 30px rgba(250, 92, 92, 0.2);
+    border-color: #fa5c5c;
+}
+
+.facebook:hover {
+    box-shadow: 0 10px 30px rgba(24, 119, 242, 0.2);
+    border-color: #1877f2;
+}
+
+.instagram:hover {
+    box-shadow: 0 10px 30px rgba(225, 48, 108, 0.2);
+    border-color: #e1306c;
+}
+
+.youtube:hover {
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
+}
+
+/* --- ป้องกันหน้าจอดิ้น (แก้สไลด์ข้างใน Mobile) --- */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    /* ห้ามเลื่อนซ้ายขวาเด็ดขาด */
+    position: relative;
+}
+
+/* --- แก้ไข Modal (Contact Button Pop-up) --- */
+.modal-overlay {
+    position: fixed;
+    /* ต้องเป็น fixed เสมอเพื่อให้ลอยทับทุกอย่าง */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* เต็มความกว้างจอ */
+    height: 100vh;
+    /* เต็มความสูงจอ */
+    display: flex;
+    justify-content: center;
+    /* กึ่งกลางแนวนอน */
+    align-items: center;
+    /* กึ่งกลางแนวตั้ง */
+    z-index: 9999;
+    /* ต้องสูงที่สุดในหน้าเว็บ */
+    padding: 20px;
+    /* กันขอบจอเวลาอยู่บนมือถือ */
+}
+
+.modal-content {
+    margin: auto;
+    /* ช่วยให้บีบอยู่ตรงกลาง */
+    position: relative;
+    max-width: 450px;
+    width: 100%;
+    /* ให้ขยายตามหน้าจอมือถือแต่ไม่เกิน 450px */
+}
+
+@media (max-width: 768px) {
+
+    /* ปรับให้ Card ไม่ดันขอบจนหน้าเว็บเลื่อน */
+    .project-card {
+        min-width: unset !important;
+        /* ยกเลิกค่าเดิมที่อาจจะกว้างเกินไป */
+        width: 100% !important;
+    }
+
+    .container-wide {
+        padding: 0 1.5rem;
+        /* ลด Padding ข้างๆ ลงหน่อยให้พอดีจอมือถือ */
+        overflow: hidden;
+        /* กันลูกหลานทำหน้าพัง */
+    }
+}
