@@ -255,7 +255,7 @@
         const modal = document.getElementById('contact-modal');
         const closeBtn = document.getElementById('close-modal');
 
-        document.querySelectorAll('.btn-contact').forEach(btn => {
+        document.querySelectorAll('a.btn-contact').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 modal.classList.add('active');
